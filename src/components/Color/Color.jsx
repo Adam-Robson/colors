@@ -1,11 +1,18 @@
-import React from 'react';
+import { NavLink, useParams } from 'react-router-dom';
+import './Color.css';
 
-const Color = () => {
+export default function Color() {
+  const { id, key, pass } = useParams();
   return (
-    <>
-      Color
-    </>
+    <section className="color-wall">
+      <div className="color-container"
+        style={ { backgroundColor: `#${id}${key}${pass}` } }>
+        <p className="hex-text" >{ id }{ key }{ pass }<br />
+          <NavLink to="/" className="back">
+            back
+          </NavLink>
+        </p>
+      </div>
+    </section>
   );
-};
-
-export default Color;
+}
