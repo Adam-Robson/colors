@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import Colors from './components/Colors/Colors';
+import Home from './components/Home/Home';
 import Color from './components/Color/Color';
 import NotFound from './components/NotFound/NotFound.jsx';
 
