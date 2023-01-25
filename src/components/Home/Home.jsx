@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import './Home.css';
 
-export default function Colors() {
+export default function Home() {
   return (
     <article className="container">
       <section className="links-container">
