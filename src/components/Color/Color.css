@@ -1,0 +1,34 @@
+.color-wall {
+    display: flex;
+    flex-flow: column wrap;
+    color:lightblue;   
+}
+
+.color-container {
+    background: fill;
+    text-align: center;
+    vertical-align:text-bottom;
+    height: 100vh;
+    width: auto;
+}
+
+.hex-text {
+    font-size: 4em;
+    font-family: "Adam", "Courier New", sans-serif;
+    position: relative;
+    top: 200px;
+}
+
+.back {
+    font-size: 1em;
+    color:lightblue;
+    text-decoration: none;
+}
+
+a:link {
+    color: lightblue;
+}
+
+a:visited {
+    color: lightblue;
+}
