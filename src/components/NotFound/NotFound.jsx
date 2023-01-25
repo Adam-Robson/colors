@@ -3,9 +3,7 @@ import React from 'react';
 const NotFound
  = () => {
    return (
-     <>
-      NotFound
-     </>
+     <>Error 4004: Page not found. The page you are looking for does not exist.</>
    );
  };
 
