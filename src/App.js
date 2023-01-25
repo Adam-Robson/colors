@@ -11,7 +11,7 @@ export default function App() {
       <Layout />
       <Routes>
         <Route path="/color/:id/:key/:pass" element={ <Color /> } />
-        <Route path="/" element={ <Colors /> } />
+        <Route path="/" element={ <Home /> } />
         <Route path="*" element={ <NotFound /> } />
       </Routes>
     </main>
