@@ -1,38 +1,29 @@
 const webpack = require('webpack');
-const path = require('path');
-const HtmlPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-
-require('dotenv').config();
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.jsx',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  entry: [
+    './src/index.js',
+  ],
   output: {
-    clean: true,
-    filename: 'bundle.[contenthash].js',
-    path: path.resolve(__dirname, './dist'),
+    // Necessary for HTML 5 routes along with historyApiFallback.
     publicPath: '/',
+    clean: true,
+    filename: 'app.bundle.js',
+    path: __dirname + '/dist',
   },
   devServer: {
-    port: 3000,
+    // Necessary for HTML 5 routes along with publicPath.
     historyApiFallback: true,
-  },
-  plugins: [
-    new HtmlPlugin({ template: './src/index.html' }),
-    // new webpack.EnvironmentPlugin([
-    //   'REACT_APP_SUPABASE_KEY',
-    //   'REACT_APP_SUPABASE_URL',
-    // ]),
-    new CopyPlugin({
-      patterns: [{ from: 'public' }],
-    }),
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
-      React: 'react',
-    }),
-  ],
-  resolve: {
-    extensions: ['.js', '.jsx'],
+    // Can be used if warnings are still preventing webpack-dev-server from
+    // allowing UI interaction; not preferred because warnings should not be ignored.
+    // client: {
+    //   overlay: {
+    //     warnings: false,
+    //   },
+    // },
   },
   module: {
     rules: [
@@ -41,51 +32,45 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          // `options` here just becomes the Babel config itself.
           options: {
-            cacheDirectory: true,
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react',
+            ],
           },
         },
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         use: [
-          {
-            loader: 'style-loader',
-          },
+          'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              modules: {
-                exportLocalsConvention: 'camelCase',
-                localIdentName: '[name]__[local]__[contenthash:base64:5]',
-              },
-              importLoaders: 1,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              postcssOptions: {
-                plugins: [
-                  require('postcss-import')(),
-                  require('autoprefixer')(),
-                  require('postcss-nested')(),
-                ],
-              },
-            },
           },
         ],
       },
       {
-        test: /\.(jpeg|jpg|png|svg|gif)$/,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        test: /\.(svg|png)$/,
+        use: 'url-loader',
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: __dirname + '/src/index.html',
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+      // Optional but not recommended.
+      // useState: ['react', 'useState' ]
+    }),
+    new CopyPlugin({
+      patterns: [
+        // Note that the "to" is relative to the output dir.
+        { from: 'public', to: '.', }
+      ],
+    }),
+  ],
 };

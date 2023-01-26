@@ -1,18 +1,23 @@
 import React from 'react';
-import { Outlet } from 'react-router';
-import { NavLink } from 'react-router-dom';
+
+import Colors from '../Colors/Colors';
+
+import './Layout.css';
 
 export default function Layout() {
   return (
     <>
-      <header className="title-container">
-        <NavLink>
-          <h1 className="title">
-            palette
-          </h1>
-        </NavLink>
-      </header>
-      <Outlet />
+    <header id="header">
+      <section id="page-title">
+        <h1>
+          Color Router
+        </h1>
+      </section>
+      <Colors />
+    </header>
+
+    <body id="body"></body>
+    <footer id="footer"></footer>
     </>
   );
 }
