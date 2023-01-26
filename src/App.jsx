@@ -1,26 +1,21 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/Home/Home.jsx';
-import Colors from './components/Colors/Colors.jsx';
 import Color from './components/Color/Color.jsx';
 import Layout from './components/Layout/Layout.jsx';
-// import NotFound from './components/NotFound/NotFound.jsx';
+import NotFound from './components/NotFound/NotFound.jsx';
 
 import './App.css';
 
-const App = () => {
+export default function App() {
   return (
     <>
       <Routes>
-        <Route element={ <Layout /> }>
-          <Route path="/" element={ <Home /> }>
-            <Route index element={ <Colors />} />
-            <Route path="/:id/:key:/pass" element={ <Color /> } />
-          </Route>
+        <Route element={ <Layout />}>
+          <Route path="/" element={ <Navigate to="/color/ba/c1/b8" /> } errorElement={ <NotFound /> } />
+          <Route path="/color/:a/:b/:c" element={ <Color /> } />
         </Route>
       </Routes>
     </>
   );
-};
-
-export default App;
+}

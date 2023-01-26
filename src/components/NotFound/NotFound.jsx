@@ -1,9 +1,15 @@
 import React from 'react';
+import { useRouteError } from 'react-router-dom';
 
-const NotFound = () => {
+export default function NotFound() {
+  const error = useRouteError();
+  /* eslint-disable no-console */
+  console.error(error);
+
   return (
-    <h1 id="error">Error 404: Page not found. The page you are looking for does not exist.</h1>
+    <div id="error">
+      <p id="error-text">An unexpected error has occurred.</p>
+      <i id="not-found">{ error.statusText || error.message }</i>
+    </div>
   );
-};
-
-export default NotFound;
+}
