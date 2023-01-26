@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const CopyPlugin = require('copy-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     publicPath: '/',
     clean: true,
     filename: 'app.bundle.js',
-    path: __dirname + '/dist',
+    path: __dirname + '/build',
   },
   devServer: {
     // Necessary for HTML 5 routes along with publicPath.
@@ -66,11 +66,11 @@ module.exports = {
       // Optional but not recommended.
       // useState: ['react', 'useState' ]
     }),
-    new CopyPlugin({
-      patterns: [
-        // Note that the "to" is relative to the output dir.
-        { from: 'public', to: '.', }
-      ],
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     // Note that the "to" is relative to the output dir.
+    //     { from: 'public', to: '.', }
+    //   ],
+    // }),
   ],
 };

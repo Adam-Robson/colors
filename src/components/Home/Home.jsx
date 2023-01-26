@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
-import './Home.css';
+import Colors from '../Colors/Colors.jsx';
 
 export default function Home() {
   return (
-    <></>
+    <>
+      <Colors />
+    </>
   );
 }

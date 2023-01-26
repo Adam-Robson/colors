@@ -1,8 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Link, useParams } from 'react-router-dom';
-
-import 'Colors.css';
 
 const Colors = () => {
   
@@ -14,7 +11,7 @@ const Colors = () => {
         <nav id="navigation">
           <Link
             to={ `/colors/${id}/${key}/${pass}` } 
-            style={ { color: `#${id}${key}${pass}`  } } 
+            style={ { color: `#${id}${key}${pass}` } } 
             className="color"
           >{ id }{ key }{ pass }</Link>
         </nav>
