@@ -1,10 +1,16 @@
 import React from 'react';
-import Colors from '../Colors/Colors.jsx';
+import { Outlet } from 'react-router-dom';
+import Color from '../Color/Color.jsx';
 
 export default function Home() {
   return (
     <>
-      <Colors />
+      <section className="all-colors">
+        <Outlet />
+      </section>
+      <section>
+        <Color />
+      </section>
     </>
   );
 }

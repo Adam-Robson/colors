@@ -1,21 +1,12 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
+import Color from '../Color/Color.jsx';
 
 const Colors = () => {
-  
-  const { id, key, pass } = useParams();
-
   return (
     <>
-      <section id="navigation">
-        <nav id="navigation">
-          <Link
-            to={ `/colors/${id}/${key}/${pass}` } 
-            style={ { color: `#${id}${key}${pass}` } } 
-            className="color"
-          >{ id }{ key }{ pass }</Link>
-        </nav>
-      </section>
+      <Color />
+      <Outlet />
     </>
   );
 };

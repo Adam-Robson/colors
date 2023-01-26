@@ -59,9 +59,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new ESLintPlugin({
-      esLintPath: '.'
-    }),
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
     }),
