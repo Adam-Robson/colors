@@ -14,10 +14,13 @@ body {
   font-family: 'Rubik Vinyl', 'electro', sans-serif;
 }
 
+
+
 #section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: yellowgreen;
   
 }
 #links {

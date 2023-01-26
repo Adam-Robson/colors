@@ -9,10 +9,10 @@ export default function Color() {
   
   return (
     <>
-      
       <section id="color"
         style={ { backgroundColor: `#${a}${b}${c}` } }
-      >{ `hex #${ a }${ b }${ c }` }
+      >
+        <p>{ `hex #${a}${b}${c}` }</p>
       </section>
     </>
   );
