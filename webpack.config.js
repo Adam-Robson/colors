@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 // const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -58,6 +59,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new ESLintPlugin({
+      esLintPath: '.'
+    }),
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
     }),

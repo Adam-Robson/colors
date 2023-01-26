@@ -73,7 +73,7 @@
     ],
     "array-bracket-spacing": "error",
     "react/prop-types": "off",
-    "no-unused-vars": ["warn"],
+    "no-unused-vars": "off",
     "react/react-in-jsx-scope": "off"
   },
   "settings": {
