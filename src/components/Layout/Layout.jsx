@@ -9,20 +9,20 @@ export default function Layout() {
       <section id="section">
         <div id="links">
           <NavLink 
-            className={ primo => primo ? 'active' : 'active'}
-            to="/color/ba/c1/b8">ashgray</NavLink>
+            className={ primo => primo ? 'active' : ''}
+            to="/color/37/38/33">olive</NavLink>
           <NavLink 
             className={ primo => primo ? 'active' : '' } 
-            to="/color/a5/ce/d5">lightblue</NavLink>
+            to="/color/34/8b/a8">munsell</NavLink>
           <NavLink 
             className={ primo => primo ? 'active' : '' } 
-            to="/color/7d/a1/95">opal</NavLink>
+            to="/color/eb/60/56">bittersweet</NavLink>
           <NavLink 
             className={ primo => primo ? 'active' : '' }
-            to="/color/2b/30/3b">gunmetal</NavLink>
+            to="/color/fe/d8/67">naples</NavLink>
           <NavLink 
             className={ primo => primo ? 'active' : '' } 
-            to="/color/d7/48/33">cinnabar</NavLink>
+            to="/color/dc/e1/e9">alice</NavLink>
         </div>
         <Outlet />
       </section>

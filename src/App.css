@@ -1,9 +1,9 @@
 :root {
---ash-gray: hsla(107, 7%, 74%, 1); /* bac1b8 */
---light-blue: hsla(188, 36%, 74%, 1); /* a5ced5 */
---opal: hsla(160, 16%, 56%, 1); /* 7da195 */
---gunmetal: hsla(220, 15%, 20%, 1); /* 2b303b */
---cinnabar: hsla(8, 67%, 52%, 1); /* d74833 */
+--olive: hsla(72, 5%, 21%, 1);
+--munsell: hsla(195, 53%, 43%, 1);
+--bittersweet: hsla(4, 79%, 63%, 1);
+--alice: hsla(217, 23%, 89%, 1);
+--naples: hsla(45, 99%, 70%, 1);
 }
 
 body {
@@ -11,36 +11,33 @@ body {
   width: 100vw;
   margin: 0 auto;
   padding: 0;
-  font-family: 'Rubik Vinyl', 'electro', sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
 
 #section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: yellowgreen;
-  
+  background: var(--alice);
 }
 #links {
   display: flex;
   justify-content: space-between;
   text-align: center;
-  font-size: 5em;
-  
+  font-size: 3.5em;
+  padding: 5px;
 }
 
 a {
-  margin: 15px 15px 10px 15px;;
-  color:darkslateblue;
+  margin: 15px 30px 10px 15px;
   text-decoration: none;
+  color: var(--olive);
 }
 
 #color {
   height: 100vh;
   width: 100vw;
-  font-size: 5em;
-  color:antiquewhite;
+  font-size: 15em;
   text-align: center;
+  text-shadow: .5px .5px 2px antiquewhite;
 }

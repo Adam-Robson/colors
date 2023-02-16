@@ -12,7 +12,7 @@ export default function App() {
     <>
       <Routes>
         <Route element={ <Layout />}>
-          <Route path="/" element={ <Navigate to="/color/ba/c1/b8" /> } errorElement={ <NotFound /> } />
+          <Route path="/" element={ <Navigate to="/color/dc/e1/e9" /> } errorElement={ <NotFound /> } />
           <Route path="/color/:a/:b/:c" element={ <Color /> } />
         </Route>
       </Routes>

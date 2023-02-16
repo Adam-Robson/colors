@@ -12,7 +12,7 @@ export default function Color() {
       <section id="color"
         style={ { backgroundColor: `#${a}${b}${c}` } }
       >
-        <p>{ `hex #${a}${b}${c}` }</p>
+        <p>{ `#${a}${b}${c}` }</p>
       </section>
     </>
   );
