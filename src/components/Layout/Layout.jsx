@@ -1,12 +1,13 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 
 export default function Layout() {
+  const { a, b, c } = useParams();
 
 
   return (
     <>
-      <section id="section">
+      <section id="section" style={ { backgroundColor: `#${a}${b}${c}` } }>
         <div id="links">
           <NavLink 
             className={ primo => primo ? 'active' : ''}
@@ -24,7 +25,7 @@ export default function Layout() {
             className={ primo => primo ? 'active' : '' } 
             to="/color/dc/e1/e9">alice</NavLink>
         </div>
-        <Outlet />
+        <Outlet a={ a } b={ b } c={ c } />
       </section>
     </>
   );
