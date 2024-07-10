@@ -1,3 +1,3 @@
 # Colors
 
-This project was bundled with a custom webpack configuration.
+This project was created from scratch.
