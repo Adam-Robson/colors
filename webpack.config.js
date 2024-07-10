@@ -1,31 +1,30 @@
-const webpack = require('webpack');
-// const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
+import { fileURLToPath } from 'url';
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export const config = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+
   entry: [
-    './src/index.js',
+    './src/index.jsx',
   ],
+
   output: {
-    // Necessary for HTML 5 routes along with historyApiFallback.
     publicPath: '/',
     clean: true,
     filename: 'app.bundle.js',
-    path: __dirname + '/build',
+    path: path.join(__dirname, '/dist')
   },
+
   devServer: {
-    // Necessary for HTML 5 routes along with publicPath.
     historyApiFallback: true,
-    // Can be used if warnings are still preventing webpack-dev-server from
-    // allowing UI interaction; not preferred because warnings should not be ignored.
-    // client: {
-    //   overlay: {
-    //     warnings: false,
-    //   },
-    // },
   },
+
   module: {
     rules: [
       {
@@ -33,7 +32,6 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          // `options` here just becomes the Babel config itself.
           options: {
             presets: [
               '@babel/preset-env',
@@ -42,6 +40,7 @@ module.exports = {
           },
         },
       },
+
       {
         test: /\.css$/,
         exclude: /node_modules/,
@@ -52,26 +51,30 @@ module.exports = {
           },
         ],
       },
+
       {
         test: /\.(svg|png)$/,
         use: 'url-loader',
       },
     ],
   },
+
   plugins: [
+    new ESLintPlugin({
+      files: [
+        './**/*.{js,jsx}'
+      ]
+    }),
     new HtmlWebpackPlugin({
-      template: __dirname + '/src/index.html',
+      template: path.join(__dirname, '/src/index.html'),
     }),
     new webpack.ProvidePlugin({
       React: 'react',
-      // Optional but not recommended.
-      // useState: ['react', 'useState' ]
     }),
-    // new CopyPlugin({
-    //   patterns: [
-    //     // Note that the "to" is relative to the output dir.
-    //     { from: 'public', to: '.', }
-    //   ],
-    // }),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 };
+
+export default config;
